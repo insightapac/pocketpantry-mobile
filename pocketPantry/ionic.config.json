@@ -1,0 +1,7 @@
+{
+  "name": "pocketPantry",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
