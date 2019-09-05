@@ -5,22 +5,26 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar color="dark">
-    <ion-searchbar placeholder="Search for a recipe" color="light"></ion-searchbar>
+    <ion-searchbar
+      placeholder="Search for a recipe"
+      color="light"
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item [routerLink]="['/recipes/', foo]" routerDirection="forward">
       <ion-thumbnail slot="start">
-        <img
-          src="../../assets/img/redDuck.jpg"
-        />
+        <img src="../../assets/img/redDuck.jpg" />
       </ion-thumbnail>
       <ion-label>
-          <h2>Thai Red Duck Curry</h2>
-          <h3>Blah</h3>
-          <p>Something, Something</p>
+        <h2>Thai Red Duck Curry</h2>
+        <h3>Blah</h3>
+        <p>Something, Something</p>
       </ion-label>
     </ion-item>
   </ion-list>
