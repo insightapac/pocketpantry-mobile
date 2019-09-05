@@ -1,6 +1,7 @@
 Front-end and UI components
 https://ionicframework.com/docs/layout/css-utilities
 https://ionicframework.com/docs/components/
+https://ionicons.com/
 
 
 Native components
