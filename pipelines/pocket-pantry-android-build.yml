@@ -40,6 +40,16 @@ steps:
       src/Client/platforms/android/**
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'AppCenterInsightAus'
+    appSlug: 'Pocket-Pantry-Android'
+    appFile: 'src/Client/platforms/android/**/*.apk'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Release Notes'
+    destinationType: 'groups'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts: drop'
   inputs:
