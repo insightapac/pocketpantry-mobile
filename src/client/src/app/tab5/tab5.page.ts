@@ -8,7 +8,7 @@ import { MsalService } from "../services/msal.service";
 })
 export class Tab5Page {
   constructor(private msalService: MsalService) {}
-  logIn(): void {
+  logIn(event): void {
     this.msalService.login();
   }
 

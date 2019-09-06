@@ -35,4 +35,8 @@ export class AddItemPage implements OnInit {
       dismissed: true
     });
   }
+  
+  presentAddItemModal(){
+    
+  }
 }
