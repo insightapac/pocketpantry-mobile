@@ -51,7 +51,7 @@ steps:
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'AppCenterInsightAus'
-    appSlug: 'Pocket-Pantry-Android'
+    appSlug: 'InsightAus/Pocket-Pantry-Android'    
     appFile: 'src/Client/platforms/android/**/*.apk'
     symbolsOption: 'Android'
     releaseNotesOption: 'input'
