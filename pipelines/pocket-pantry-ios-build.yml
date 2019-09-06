@@ -40,6 +40,16 @@ steps:
       src/Client/platforms/ios/**
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'AppCenterInsightAus'
+    appSlug: 'InsightAus/Pocket-Pantry-iOS'
+    appFile: 'src/Client/platforms/ios/**/*.ipa'
+    symbolsOption: 'Apple'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Release Notes'
+    destinationType: 'groups'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts: drop'
   inputs:
