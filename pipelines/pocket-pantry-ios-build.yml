@@ -38,7 +38,7 @@ steps:
 
 - script: | 
     cd src/Client
-    ionic cordova build ios --prod --release
+    ionic cordova build ios --prod --release --verbose --named-chunks
   displayName: 'Ionic iOS Build'
 
 - task: CopyFiles@2
