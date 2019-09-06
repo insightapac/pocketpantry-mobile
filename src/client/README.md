@@ -15,7 +15,11 @@ npm install
 ## Usage
 
 ```
+<<<<<<< HEAD
 Ionic serve --lab
+=======
+ionic serve --lab
+>>>>>>> 558d99435ec8f43082834ac7dd2b0b05041fbca0
 ```
 
 # Helpful References
