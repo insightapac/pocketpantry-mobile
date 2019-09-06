@@ -10,7 +10,8 @@ import {
 } from "@ionic-native/barcode-scanner/ngx";
 import { Camera, PictureSourceType, CameraOptions } from '@ionic-native/camera/ngx';
 import * as Tesseract from "tesseract.js";
-
+import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
+import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 @Component({
   selector: "app-tab1",
   templateUrl: "tab1.page.html",
@@ -27,7 +28,12 @@ export class Tab1Page {
     private barcodeScanner: BarcodeScanner,
     public navCtrl: NavController,
     private camera: Camera,
-  ) {}
+    private appCenterAnalytics: AppCenterAnalytics,
+    private appCenterCrashes: AppCenterCrashes,
+  ) {
+    this.appCenterAnalytics.trackEvent('tab1', {event: 'loaded'});
+    
+  }
 
   doRefresh(event) {
     console.log("Begin async operation");
