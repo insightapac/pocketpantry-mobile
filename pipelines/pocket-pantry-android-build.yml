@@ -13,10 +13,18 @@ trigger:
       - scripts
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'macOS-10.13'
 
 steps:
-
+- task: UseNode@1
+  inputs:
+    version: '11.x'
+    checkLatest: true
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install npm@latest -g'
+    
 - script: npm install -g ionic
   displayName: 'Install Ionic'
 
