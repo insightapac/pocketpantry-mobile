@@ -15,7 +15,7 @@ npm install
 ## Usage
 
 ```
-Ionic serve --lab
+ionic serve --lab
 ```
 
 # Helpful References
