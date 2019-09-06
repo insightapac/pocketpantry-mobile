@@ -30,7 +30,7 @@ steps:
 
 - script: | 
     cd src/Client
-    ionic cordova build android --prod --release
+    ionic cordova build android --prod --release --verbose --named-chunks
   displayName: 'Ionic Android Build'
 
 - task: CopyFiles@2
