@@ -18,7 +18,7 @@ import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 
 import { AddItemPageModule } from "./modals/add-item/add-item.module";
-import { RecipesPageModule } from "./recipes/recipes.module"
+import { RecipesPageModule } from "./recipes/recipes.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,8 +29,7 @@ import { RecipesPageModule } from "./recipes/recipes.module"
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AddItemPageModule,
-    RecipesPageModule
+    AddItemPageModule
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,56 @@
+
+.recipe-card-img {
+    position:relative;
+    height:180px;
+    overflow:hidden;
+
+
+    .recipe-card-meta {
+        background:rgba(0,0,0,0.6);
+        padding:12px 20px;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        color:#FFFFFF;
+
+        span {
+            font-size:16px;
+            line-height:16px;
+            ion-icon {
+                width:16px; height:16px; vertical-align: middle;
+            }
+        }
+
+        span + span { border-left:1px solid #FFFFFF; margin-left:15px; padding-left:15px; }
+    }
+}
+
+.recipe-card {
+
+
+    ion-card-header {
+        ion-card-title {
+            font-size:1.6rem;
+        }
+    }
+
+
+    ion-card-content {
+        padding-top:0;
+
+        .tag-container {
+            margin-top:0.75rem;
+
+            .tag {
+                display:inline-block;
+                background:#EfEfef;
+                padding:4px 12px;
+                margin-top:4px;
+            }
+
+            .tag:not(last-child) {
+                margin-right:4px;
+            }
+        }
+    }
+}
