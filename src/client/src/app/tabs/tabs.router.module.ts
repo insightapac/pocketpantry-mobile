@@ -8,6 +8,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'select-menu',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../select-menu/select-menu.module').then(m => m.SelectMenuPageModule)
+          }
+        ]
+      },
+      {
         path: 'tab1',
         children: [
           {
