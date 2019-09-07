@@ -25,27 +25,27 @@ export class ProfileFormComponent implements OnInit {
     this.allergyItems = [
       {
         value: false,
-        label: 'Checkbox 1'
+        label: 'Allergies 1'
       },
       {
         value: true,
-        label: 'Checkbox 2'
+        label: 'Allergies 2'
       },
       {
         value: false,
-        label: 'Checkbox 3'
+        label: 'Allergies 3'
       },
       {
         value: false,
-        label: 'Checkbox 4'
+        label: 'Allergies 4'
       },
       {
         value: false,
-        label: 'Checkbox 5'
+        label: 'Allergies 5'
       },
       {
         value: false,
-        label: 'Checkbox 6'
+        label: 'Allergies 6'
       }
     ]
     this.groceryItems = [
