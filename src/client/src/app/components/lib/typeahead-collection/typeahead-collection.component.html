@@ -1,0 +1,20 @@
+<div class="typeahead-collection">
+		<ion-text>
+			<h3>{{label}}</h3>
+		</ion-text>
+	<div class="typeahead">
+		<ion-searchbar
+			(ionFocus)="addFocus()"
+			(ionBlur)="removeFocus()"
+			(ionInput)="getItems($event)"
+			(ionClear)="clear"
+			(ionCancel)="clear"
+			debounce=500>
+		</ion-searchbar>
+		<ion-list *ngIf="isItemAvailable">
+			<ion-item *ngFor="let item of result" (click)="addItem(item)">
+				{{item.label}}
+			</ion-item>
+		</ion-list>
+	</div>
+</div>
