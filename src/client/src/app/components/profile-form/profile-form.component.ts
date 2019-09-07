@@ -27,11 +27,11 @@ export class ProfileFormComponent implements OnInit {
     this.allergyItems = [
       {
         value: false,
-        label: 'Gluten '
+        label: 'Gluten'
       },
       {
         value: true,
-        label: 'Peanut '
+        label: 'Peanut'
       },
       {
         value: false,
