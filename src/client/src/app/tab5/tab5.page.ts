@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class Tab5Page {
 
-  constructor() {}
+  constructor(
+    public formBulder:FormBuilder
+  ) {
+
+  }
+
+
+
 
 }
