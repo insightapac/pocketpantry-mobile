@@ -1,0 +1,20 @@
+.menuGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menuCard{
+    flex: 0 0 125px;
+    margin: 10px;
+}
+
+.menuImage{
+    border-radius: 30px;
+    overflow: hidden;
+    flex:1 1 auto;
+    
+}
+.menuText {
+    text-align: center;
+}

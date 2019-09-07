@@ -13,3 +13,16 @@
 
   <app-profile-form></app-profile-form>
 
+    <ion-fab vertical="top" horizontal="center" slot="fixed" *ngIf="isOnline()">
+      <ion-fab-button (click)="logOut()">
+        Log Out
+      </ion-fab-button>
+      The secret message is "You're logged in!"
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="center" slot="fixed" *ngIf="!isOnline()">
+      <ion-fab-button (click)="logIn($event)">
+        <ion-icon name="key"></ion-icon>
+      </ion-fab-button>
+      <p>Log In to see the secret message</p>
+    </ion-fab>
+  </ion-content>

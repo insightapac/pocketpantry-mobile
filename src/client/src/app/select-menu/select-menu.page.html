@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="text-custom">
+      Create A Menu
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-text color="dark">
+      <p>Start by choosing a menu for next weeks meal plan</p>
+    </ion-text>
+  <div class="menuGrid">
+    <a class="menuCard"
+      routerLink="/plan"
+      [queryParams]="getQueryPrams(menu)"
+      *ngFor="let menu of menuCollection;"
+    >
+      <div class="menuImage"><img src="{{menu.img}}" alt="Menu Image"></div>
+      <div class="menuText">{{menu.name}}</div>
+    </a>
+  </div>
+</ion-content>

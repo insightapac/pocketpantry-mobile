@@ -13,10 +13,18 @@ trigger:
       - scripts
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'macOS-10.13'
 
 steps:
-
+- task: UseNode@1
+  inputs:
+    version: '11.x'
+    checkLatest: true
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install npm@latest -g'
+    
 - script: npm install -g ionic
   displayName: 'Install Ionic'
 
@@ -30,7 +38,7 @@ steps:
 
 - script: | 
     cd src/Client
-    ionic cordova build android --prod --release
+    ionic cordova build android --prod --release --verbose --named-chunks
   displayName: 'Ionic Android Build'
 
 - task: CopyFiles@2
@@ -43,7 +51,7 @@ steps:
 - task: AppCenterDistribute@3
   inputs:
     serverEndpoint: 'AppCenterInsightAus'
-    appSlug: 'Pocket-Pantry-Android'
+    appSlug: 'InsightAus/Pocket-Pantry-Android'    
     appFile: 'src/Client/platforms/android/**/*.apk'
     symbolsOption: 'Android'
     releaseNotesOption: 'input'

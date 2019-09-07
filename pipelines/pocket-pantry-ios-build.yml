@@ -16,7 +16,15 @@ pool:
   vmImage: 'macOS-10.13'
 
 steps:
-
+- task: UseNode@1
+  inputs:
+    version: '11.x'
+    checkLatest: true
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install npm@latest -g'
+    
 - script: npm install -g ionic
   displayName: 'Install Ionic'
 
@@ -30,7 +38,7 @@ steps:
 
 - script: | 
     cd src/Client
-    ionic cordova build ios --prod --release
+    ionic cordova build ios --prod --release --verbose --named-chunks
   displayName: 'Ionic iOS Build'
 
 - task: CopyFiles@2
@@ -39,6 +47,16 @@ steps:
     Contents: |
       src/Client/platforms/ios/**
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'AppCenterInsightAus'
+    appSlug: 'InsightAus/Pocket-Pantry-iOS'
+    appFile: 'src/Client/platforms/ios/**/*.ipa'
+    symbolsOption: 'Apple'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Release Notes'
+    destinationType: 'groups'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts: drop'

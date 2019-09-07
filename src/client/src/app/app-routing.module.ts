@@ -8,6 +8,9 @@ const routes: Routes = [
   },
   { path: 'add-item', loadChildren: './modals/add-item/add-item.module#AddItemPageModule' },
   { path: 'recipes/:myid', loadChildren: './recipes/recipes.module#RecipesPageModule' },
+  { path: 'select-menu', loadChildren: './select-menu/select-menu.module#SelectMenuPageModule' },  { path: 'plan', loadChildren: './plan/plan.module#PlanPageModule' },
+
+
 ];
 @NgModule({
   imports: [

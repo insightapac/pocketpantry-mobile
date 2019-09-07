@@ -16,7 +16,17 @@ interface Recipe {
 export class PlanPage implements OnInit {
   public meals = Array(10).fill(0).map((_, i) => i + 1);
 
-  public recipeCollection: Array<Recipe> = []
+  public recipeCollection: Array<Recipe> = [
+    {
+      name: 'Bolognese',
+    },
+    {
+      name: 'Bolognese with cheese'
+    },
+    {
+      name: 'Veg Bolognese'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {  }
