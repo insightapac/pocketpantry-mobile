@@ -4,15 +4,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
-import { RecipeCardComponent } from '../components/recipe-card/recipe-card.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    ComponentsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-  declarations: [Tab1Page, RecipeCardComponent]
+  declarations: [Tab1Page]
 })
 export class Tab1PageModule {}
