@@ -21,6 +21,7 @@ import { AddItemPageModule } from './modals/add-item/add-item.module';
 import { RecipesPageModule } from './recipes/recipes.module';
 import { SelectMenuPageModule } from './select-menu/select-menu.module';
 import { PlanPageModule } from './plan/plan.module';
+import { BrowseMealsModule } from './browse-meals/browse-meals.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,8 @@ import { PlanPageModule } from './plan/plan.module';
     AddItemPageModule,
     RecipesPageModule,
     SelectMenuPageModule,
-    PlanPageModule
+    PlanPageModule,
+    BrowseMealsModule
   ],
   providers: [
     StatusBar,
