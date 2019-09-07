@@ -1,0 +1,11 @@
+<ion-card>
+    <ion-card-header ngIf="label">
+        <ion-text>{{label}}</ion-text>
+    </ion-card-header>
+  <ion-list ngIf="items">    
+    <ion-item *ngFor="let item of items; let i = index">
+      <ion-label class="sr-only">{{item.label}}</ion-label>
+      <ion-checkbox slot="end" [checked]="item.value"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-card>

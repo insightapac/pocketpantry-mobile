@@ -1,11 +1,27 @@
-<form (ngSubmit)="updateProfile()">
+<form [formGroup]="formGroup">
+
+      <app-checkbox-multiselect 
+        formControlName="allergyTypes" 
+        [items]="allergyItems"
+        [label]="'Any allergies?'"
+        >
+      </app-checkbox-multiselect>
+
   <ion-item>
+    <app-typeahead 
+      formControlName="wasteItems" 
+      [items]="groceryItems"
+      [label]="'What do you waste the most of per week?'"
+      >
+    </app-typeahead>
+  </ion-item>
+  <!-- <ion-item>
     <ion-label>Todo</ion-label>
     <ion-input type="text" name="title"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Description</ion-label>
     <ion-textarea name="description"></ion-textarea>
-  </ion-item>
-  <button ion-button type="submit" block>Add Todo</button>
+  </ion-item> -->
+  <button ion-button type="submit" block>Save</button>
 </form>
