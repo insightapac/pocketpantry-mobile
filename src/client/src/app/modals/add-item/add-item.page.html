@@ -5,16 +5,31 @@
       ><ion-icon name="close" slot="icon-only"></ion-icon
     ></ion-button>
   </ion-toolbar>
-  <ion-toolbar class="secondary-toolbar" color="primary">
-    <ion-searchbar placeholder="Add items to list" color="light"></ion-searchbar>
-    <ion-button (click)="presentAddItemModal()" size="small" slot="end" color="dark" fill="outline"
-    ><ion-icon slot="start" name="add-circle"></ion-icon>Add</ion-button
-  >
+  <ion-toolbar color="primary">
+    <ion-searchbar
+      placeholder="Add items to list"
+      color="light"
+      [(ngModel)]="searchTerm"
+      (ionChange)="setFilteredItems()"
+    ></ion-searchbar>
+    <ion-button
+      (click)="presentAddItemModal()"
+      size="small"
+      slot="end"
+      color="dark"
+      fill="outline"
+      ><ion-icon slot="start" name="add-circle"></ion-icon>Add</ion-button
+    >
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-    <ion-list>
-
-    </ion-list>
-  </ion-content>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item.title }}
+    </ion-item>
+  </ion-list>
+</ion-content>
