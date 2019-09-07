@@ -10,8 +10,9 @@
 </ion-header>
 
 <ion-content>
+
   <app-profile-form></app-profile-form>
-</ion-content>
+
     <ion-fab vertical="top" horizontal="center" slot="fixed" *ngIf="isOnline()">
       <ion-fab-button (click)="logOut()">
         Log Out
