@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="text-custom">
+      My meal plan
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <a slot="start" routerLink="/select-menu"><ion-icon name="arrow-back"></ion-icon>Back</a>
+    <ion-button slot="end" class="shuffle">Browse</ion-button>
+  </ion-toolbar>
+  <ion-toolbar class="controls" color="dark">
+    
+    <ion-button slot="start" class="shuffle"><ion-icon name="sync" size="small"></ion-icon> shuffle</ion-button>
+    <ion-select slot="end" value="{{recipeCollection.length}}">
+      <ion-select-option
+        *ngFor="let value of meals"
+        value="{{value}}">{{value}} Meals</ion-select-option>
+      <ion-select-option value="2">Male</ion-select-option>
+    </ion-select>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-recipe-card 
+    *ngFor="let recipe of recipeCollection;"
+    recipe="{{recipe}}"
+  ></app-recipe-card>
+</ion-content>
