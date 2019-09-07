@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-card',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() recipe: Recipe;
+
+  @Input() public refreshBtnFunction: () => void ;
+  @Input() public addBtnFunction: () => void ;
+  @Input() public deleteBtnFunction: () => void ;
+
+  constructor() {}
 
   ngOnInit() {}
 
