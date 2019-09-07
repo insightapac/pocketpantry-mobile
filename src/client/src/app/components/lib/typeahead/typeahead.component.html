@@ -1,18 +1,16 @@
-<ion-card>
-    <ion-card-header *ngIf="label">
-        <ion-text><h3>{{label}}</h3></ion-text>
-    </ion-card-header>
-	<div class="typeahead">
-		<ion-searchbar
-			(ionFocus)="addFocus()"
-			(ionInput)="search()"
-			(ionBlur)="removeFocus()"
-			debounce=500>
-		</ion-searchbar>
-		<ion-list>
-			<ion-item *ngFor="let item of items" (click)="add(item)">
-				{{item.label}}
-			</ion-item>
-		</ion-list>
-	</div>
-</ion-card>
+<div class="typeahead">
+	<ion-text>
+		<h3>{{label}}</h3>
+	</ion-text>
+	<ion-searchbar
+		(ionFocus)="addFocus()"
+		(ionInput)="search()"
+		(ionBlur)="removeFocus()"
+		debounce=500>
+	</ion-searchbar>
+	<ion-list>
+		<ion-item *ngFor="let item of items" (click)="add(item)">
+			{{item.label}}
+		</ion-item>
+	</ion-list>
+</div>

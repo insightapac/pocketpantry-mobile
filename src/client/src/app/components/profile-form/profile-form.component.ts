@@ -12,10 +12,12 @@ export class ProfileFormComponent implements OnInit {
 
   public groceryItems: Array<any> = [];
   public allergyItems: Array<any> = [];
+  public foodTypesItems: Array<any> = [];
 
   public formGroup: FormGroup;
   public allergyTypes: FormControl;
-  public wasteItems: FormControl;
+  public wastedItems: FormControl;
+  public foodTypes: FormControl;
 
   constructor(
     public formBuilder: FormBuilder
@@ -25,27 +27,27 @@ export class ProfileFormComponent implements OnInit {
     this.allergyItems = [
       {
         value: false,
-        label: 'Allergies 1'
+        label: 'Gluten '
       },
       {
         value: true,
-        label: 'Allergies 2'
+        label: 'Peanut '
       },
       {
         value: false,
-        label: 'Allergies 3'
+        label: 'Soy'
       },
       {
         value: false,
-        label: 'Allergies 4'
+        label: 'Mustard'
       },
       {
         value: false,
-        label: 'Allergies 5'
+        label: 'Sesame'
       },
       {
         value: false,
-        label: 'Allergies 6'
+        label: 'Tree Nut'
       }
     ]
     this.groceryItems = [
@@ -66,21 +68,50 @@ export class ProfileFormComponent implements OnInit {
         label: 'Potato'
       }
     ]
+    this.foodTypesItems = [
+      {
+        value: false,
+        label: 'Asian'
+      },
+      {
+        value: true,
+        label: 'Italian'
+      },
+      {
+        value: false,
+        label: 'Thai'
+      },
+      {
+        value: false,
+        label: 'Indian'
+      },
+      {
+        value: false,
+        label: ' Aussie BBQ'
+      },
+      {
+        value: false,
+        label: 'Greek'
+      }
+    ]
     this.configForm();
   }
 
 
   configForm(): void {
     this.allergyTypes = new FormControl(false);
-    this.wasteItems = new FormControl(false);
+    this.wastedItems = new FormControl(false);
+    this.foodTypes = new FormControl(false);
     this.formGroup = this.formBuilder.group({
       allergyTypes: this.allergyTypes,
-      wasteItems: this.wasteItems
-    })
+      wasteItems: this.wastedItems,
+      foodTypes: this.foodTypes
+    });
+    // TODO - Configure service
   }
 
   save(): void {
-
+    // TODO - Save the changes
   }
 
 }

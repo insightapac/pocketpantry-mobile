@@ -2,18 +2,18 @@ import { Component, OnInit, Input, forwardRef, Optional, Host, SkipSelf } from '
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, AbstractControl, ControlContainer } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkbox-multiselect',
-  templateUrl: './checkbox-multiselect.component.html',
-  styleUrls: ['./checkbox-multiselect.component.scss'],
+  selector: 'app-checkbox-collection',
+  templateUrl: './checkbox-collection.component.html',
+  styleUrls: ['./checkbox-collection.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxMultiselectComponent),
+      useExisting: forwardRef(() => CheckboxCollectionComponent),
       multi: true
     }
   ]
 })
-export class CheckboxMultiselectComponent implements OnInit, ControlValueAccessor {
+export class CheckboxCollectionComponent implements OnInit, ControlValueAccessor {
 
   protected control: AbstractControl;
   public value: any;

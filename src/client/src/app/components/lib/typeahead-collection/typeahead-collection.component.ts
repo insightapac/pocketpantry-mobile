@@ -19,14 +19,17 @@ export class TypeaheadCollectionComponent implements OnInit, ControlValueAccesso
   public value: any;
   public id = null;
   public name = null;
+  public isItemAvailable = false;
 
   @Input() formControlName: string;
   @Input() items = [];
+  @Input() result = [];
   @Input() label = '';
 
   constructor(
     @Optional() @Host() @SkipSelf()
     protected controlContainer: ControlContainer
+
   ) { }
 
   ngOnInit(): void {
@@ -64,17 +67,48 @@ export class TypeaheadCollectionComponent implements OnInit, ControlValueAccesso
 
   }
 
-
   addFocus(item: any): void {
+    console.log('addFocus')
+  }
 
+  clear(): void{
+    console.log('clear')
+    this.cancelSearch();
   }
 
   removeFocus(): void {
-
+    console.log('removeFocus')
+    this.cancelSearch();
   }
 
-  search(): void {
+  getItems(e: any): void {
+    let val = e.target.value;
+    if (val && val.trim() != '') {
+      this.isItemAvailable = true;
+      this.result = this.items.filter((item) => {     
+        if (item.value) {
+          return item.label.toLowerCase().startsWith(val.toLowerCase())
+        }
+        return [];
+      })
+      console.log('items', this.result)
+    } else {
+      this.cancelSearch();
+    }
+  }
 
+  cancelSearch(): void{
+    this.isItemAvailable = false;
+    this.result = [];
+  }
+
+
+  addToList(id: any): void {
+    // TODO
+  }
+
+  removeFromList(id: any): void {
+    // TODO
   }
 
 }

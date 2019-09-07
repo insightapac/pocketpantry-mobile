@@ -6,9 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Tab5Page } from './tab5.page';
 import { ProfileFormComponent } from '../../app/components/profile-form/profile-form.component';
 import {
-    CheckboxMultiselectComponent
-} from '../components/lib/checkbox-multiselect/checkbox-multiselect.component';
-import { TypeaheadComponent } from '../components/lib/typeahead/typeahead.component';
+    CheckboxCollectionComponent
+} from '../components/lib/checkbox-collection/checkbox-collection.component';
+import {
+    TypeaheadCollectionComponent
+} from '../components/lib/typeahead-collection/typeahead-collection.component';
 import { FormBuilder } from '@angular/forms';
 
 @NgModule({
@@ -22,8 +24,8 @@ import { FormBuilder } from '@angular/forms';
   declarations: [
     Tab5Page,
     ProfileFormComponent,
-    CheckboxMultiselectComponent,
-    TypeaheadComponent
+    CheckboxCollectionComponent,
+    TypeaheadCollectionComponent
   ],
   providers:[
     FormBuilder
