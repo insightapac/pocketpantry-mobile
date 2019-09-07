@@ -16,6 +16,10 @@ export class Tab5Page {
     this.msalService.logout();
     sessionStorage.clear();
   }
+  
+
+
+
 
   isOnline(): boolean {
     return this.msalService.isOnline();

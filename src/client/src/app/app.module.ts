@@ -20,6 +20,7 @@ import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
 import { AddItemPageModule } from './modals/add-item/add-item.module';
 import { RecipesPageModule } from './recipes/recipes.module';
 import { SelectMenuPageModule } from './select-menu/select-menu.module';
+import { PlanPageModule } from './plan/plan.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +33,8 @@ import { SelectMenuPageModule } from './select-menu/select-menu.module';
     FormsModule,
     AddItemPageModule,
     RecipesPageModule,
-    SelectMenuPageModule
+    SelectMenuPageModule,
+    PlanPageModule
   ],
   providers: [
     StatusBar,

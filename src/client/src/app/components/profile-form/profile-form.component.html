@@ -1,0 +1,27 @@
+
+<div>
+  <form [formGroup]="formGroup">
+
+    <app-checkbox-collection 
+      formControlName="allergyTypes" 
+      [items]="allergyItems"
+      [label]="'Any allergies?'"
+      >
+    </app-checkbox-collection>
+
+    <app-typeahead-collection 
+      formControlName="wastedItems" 
+      [items]="groceryItems"
+      [label]="'What do you waste the most of per week?'"
+      >
+    </app-typeahead-collection>
+
+    <app-checkbox-collection 
+    formControlName="foodTypes" 
+    [items]="foodTypesItems"
+    [label]="'Select the food types you prefer'"
+    >
+  </app-checkbox-collection>
+
+  </form>
+</div>
