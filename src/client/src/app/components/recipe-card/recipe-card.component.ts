@@ -7,9 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeCardComponent implements OnInit {
 
-  @Input() recipe;
+  @Input() recipe: Recipe;
 
-  constructor() { }
+  @Input() public refreshBtnFunction: () => void ;
+  @Input() public addBtnFunction: () => void ;
+  @Input() public deleteBtnFunction: () => void ;
+
+  constructor() {}
 
   ngOnInit() {}
 

@@ -1,37 +1,62 @@
 
-.recipe-card-img {
-    position:relative;
-    height:180px;
-    overflow:hidden;
 
-
-    .recipe-card-meta {
-        background:rgba(0,0,0,0.6);
-        padding:12px 20px;
-        position:absolute;
-        bottom:0;
-        width:100%;
-        color:#FFFFFF;
-
-        span {
-            font-size:16px;
-            line-height:16px;
-            ion-icon {
-                width:16px; height:16px; vertical-align: middle;
-            }
-        }
-
-        span + span { border-left:1px solid #FFFFFF; margin-left:15px; padding-left:15px; }
-    }
-}
 
 .recipe-card {
+
+    .recipe-card-top {
+        position:relative;
+        height:180px;
+        overflow:hidden;
+
+        .recipe-card-controls {
+            position:absolute;
+            top:0;
+            width:100%;
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+
+            .controls-left { flex:0 0 auto; }
+            .controls-right { flex:0 0 auto; }
+
+            a {
+                padding:6px 7px; background:rgba(0,0,0,0.6); color:#FFFFFF; display:block;
+                ion-icon {
+                    width:24px;
+                    height:24px;
+                }
+            }
+
+        }
+    
+    
+        .recipe-card-meta {
+            background:rgba(0,0,0,0.6);
+            padding:12px 20px;
+            position:absolute;
+            bottom:0;
+            width:100%;
+            color:#FFFFFF;
+    
+            span {
+                font-size:16px;
+                line-height:16px;
+                ion-icon {
+                    width:16px; height:16px; vertical-align: middle;
+                }
+            }
+    
+            span + span { border-left:1px solid #FFFFFF; margin-left:15px; padding-left:15px; }
+        }
+    }
 
 
     ion-card-header {
         ion-card-title {
             font-size:1.6rem;
         }
+
+        .recipe-card-servings { margin-left:auto; display:inline-block; }
     }
 
 
@@ -44,8 +69,9 @@
             .tag {
                 display:inline-block;
                 background:#EfEfef;
-                padding:4px 12px;
+                padding:2px 6px;
                 margin-top:4px;
+                font-size:0.8rem;
             }
 
             .tag:not(last-child) {
@@ -53,4 +79,8 @@
             }
         }
     }
+
+
+
+
 }
