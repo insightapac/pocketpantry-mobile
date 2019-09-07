@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 interface Recipe {
   name: string;
-  description: string;
-  tags: Array<string>;
-  time: number;
-  calories: number;
 }
 
 @Component({
