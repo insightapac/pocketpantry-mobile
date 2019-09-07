@@ -104,7 +104,7 @@ export class ProfileFormComponent implements OnInit {
     this.foodTypes = new FormControl(false);
     this.formGroup = this.formBuilder.group({
       allergyTypes: this.allergyTypes,
-      wasteItems: this.wastedItems,
+      wastedItems: this.wastedItems,
       foodTypes: this.foodTypes
     });
     // TODO - Configure service
