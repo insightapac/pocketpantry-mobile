@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-interface Menu {
-  img: string;
-  name: string;
-  filters: Array<string>;
-}
+import { RecipesClient, CategoryDto } from '../Clients/Shopping.client';
 
 @Component({
   selector: 'app-select-menu',
@@ -14,99 +8,16 @@ interface Menu {
 })
 export class SelectMenuPage implements OnInit {
 
-  public menuCollection: Array<Menu> = [
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'All burgers',
-      filters: ['burgers']
-    },
-    {
-      img: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/exps28800_UG143377D12_18_1b_RMS-696x696.jpg',
-      name: 'Some burgers',
-      filters: ['burgers', 'burgers']
-    }
-  ];
+  public categoryCollection: Array<CategoryDto>;
 
-  constructor() { }
+  constructor(private recipesClient: RecipesClient) {
+    recipesClient.getRecipeCollection().subscribe(x => {console.log(x); this.categoryCollection = x; });
+  }
 
   ngOnInit() {
   }
 
-  getQueryPrams(menu: Menu) {
-    return ({filters: menu.filters});
-  }
-
-  doRefresh(event) {
-
+  getQueryPrams(category: CategoryDto) {
+    return ({name: category.name, filters: category.filters});
   }
 }

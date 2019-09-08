@@ -7,24 +7,17 @@
 </ion-header>
 
 <ion-content>
-  <div class="content">
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
-    <ion-text color="dark">
+  <ion-text color="dark">
       <p>Start by choosing a menu for next weeks meal plan</p>
-    </ion-text>
-    <div class="menuGrid">
-      <a class="menuCard"
-        routerLink="/tabs/select-menu/plan"
-        [queryParams]="getQueryPrams(menu)"
-        *ngFor="let menu of menuCollection;"
-      >
-        <div class="menuImage">
-          <img src="{{menu.img}}" alt="Menu Image">
-        </div>
-        <ion-text class="menuText">{{menu.name}}</ion-text>
-      </a>
-    </div>
+  </ion-text>
+  <div class="categoryGrid">
+    <a class="categoryCard"
+      routerLink="/tabs/select-menu/plan"
+      [queryParams]="getQueryPrams(category)"
+      *ngFor="let category of categoryCollection;"
+    >
+      <div class="categoryImage"><img src="{{category.img}}" alt="Meal Plan Image"></div>
+      <div class="categoryText">{{category.name}}</div>
+    </a>
   </div>
 </ion-content>

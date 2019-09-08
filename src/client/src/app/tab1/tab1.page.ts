@@ -1,23 +1,24 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import {
   ModalController,
   NavController,
-} from "@ionic/angular";
-import { AddItemPage } from "../modals/add-item/add-item.page";
+} from '@ionic/angular';
+import { AddItemPage } from '../modals/add-item/add-item.page';
 import {
   BarcodeScannerOptions,
   BarcodeScanner
-} from "@ionic-native/barcode-scanner/ngx";
+} from '@ionic-native/barcode-scanner/ngx';
 import { Camera, PictureSourceType, CameraOptions } from '@ionic-native/camera/ngx';
-import * as Tesseract from "tesseract.js";
+import * as Tesseract from 'tesseract.js';
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
+import { Recipe } from '../Clients/Shopping.client';
 
 
 @Component({
-  selector: "app-tab1",
-  templateUrl: "tab1.page.html",
-  styleUrls: ["tab1.page.scss"]
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
   scannedData: {};
@@ -25,15 +26,7 @@ export class Tab1Page {
   selectedImage: string;
   imageText: string;
 
-  public recipe: Recipe = {
-    name: "Spaghetti Bolognese",
-    description: "Short description text about this dish",
-    tags: ["Easy meals", "Vegetarian", "Healthy"],
-    time: 15,
-    calories: 1500,
-    price: 16,
-    servings: 4
-  }
+  public recipe: Recipe;
 
   constructor(
     public modalController: ModalController,
@@ -44,14 +37,14 @@ export class Tab1Page {
     private appCenterCrashes: AppCenterCrashes,
   ) {
     this.appCenterAnalytics.trackEvent('tab1', {event: 'loaded'});
-    
+
   }
 
   doRefresh(event) {
-    console.log("Begin async operation");
+    console.log('Begin async operation');
 
     setTimeout(() => {
-      console.log("Async operation has ended");
+      console.log('Async operation has ended');
       event.target.complete();
     }, 1000);
   }
@@ -67,11 +60,11 @@ export class Tab1Page {
     this.barcodeScanner
       .scan()
       .then(barcodeData => {
-        alert("Barcode data " + JSON.stringify(barcodeData));
+        alert('Barcode data ' + JSON.stringify(barcodeData));
         this.scannedData = barcodeData;
       })
       .catch(err => {
-        console.log("Error", err);
+        console.log('Error', err);
       });
   }
 
@@ -84,7 +77,7 @@ export class Tab1Page {
       .getPicture({
         quality: 100,
         destinationType: this.camera.DestinationType.DATA_URL,
-        sourceType: sourceType,
+        sourceType,
         allowEdit: true,
         saveToPhotoAlbum: false,
         correctOrientation: true
@@ -99,6 +92,6 @@ export class Tab1Page {
       .catch(err => console.error(err))
       .then(result => {
         this.imageText = result.text;
-      })
+      });
   }
 }
