@@ -21,11 +21,14 @@ import { AddItemPageModule } from './modals/add-item/add-item.module';
 import { RecipesPageModule } from './recipes/recipes.module';
 import { SelectMenuPageModule } from './select-menu/select-menu.module';
 import { PlanPageModule } from './plan/plan.module';
-import { environment } from 'src/environments/environment';
-import { API_BASE_URL, RecipesClient } from './Clients/Shopping.client';
+<<<<<<< Updated upstream
 import { BrowseMealsModule } from './browse-meals/browse-meals.module';
 import { TabsPage } from './tabs/tabs.page';
+=======
+import { environment } from 'src/environments/environment';
+import { API_BASE_URL, RecipesClient } from './Clients/Shopping.client';
 
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,12 +54,15 @@ import { TabsPage } from './tabs/tabs.page';
     MsalService,
     AppCenterAnalytics,
     AppCenterCrashes,
-    TabsPage,
+<<<<<<< Updated upstream
+    TabsPage
+=======
     {
         provide: API_BASE_URL,
         useValue: environment.API_BASE_URL
     },
     RecipesClient
+>>>>>>> Stashed changes
   ],
   bootstrap: [AppComponent]
 })

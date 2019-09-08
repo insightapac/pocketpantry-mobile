@@ -10,10 +10,10 @@
   </ion-toolbar>
   <ion-toolbar class="controls" color="dark">
     
-    <ion-button slot="start" class="shuffle"><ion-icon name="sync" size="small"></ion-icon> shuffle</ion-button>
-    <ion-select slot="end" value="{{recipeCollection.length}}">
+    <ion-button (click)="shuffleRecipes()" slot="start" class="shuffle"><ion-icon name="sync" size="small"></ion-icon> shuffle</ion-button>
+    <ion-select slot="end" value="{{totalMeals}}" #C (ionChange)="numMealsChange(C.value)">
       <ion-select-option
-        *ngFor="let value of meals"
+        *ngFor="let value of numMealsOptions"
         value="{{value}}">{{value}} Meals</ion-select-option>
       <ion-select-option value="2">Male</ion-select-option>
     </ion-select>
@@ -24,6 +24,6 @@
 <ion-content>
   <app-recipe-card 
     *ngFor="let recipe of recipeCollection;"
-    recipe="{{recipe}}"
+    [recipe]="recipe"
   ></app-recipe-card>
 </ion-content>
