@@ -1,7 +1,7 @@
 <div class="typeahead-collection">
-		<ion-text>
-			<h3>{{label}}</h3>
-		</ion-text>
+	<ion-text>
+		<h3>{{label}}</h3>
+	</ion-text>
 	<div class="typeahead">
 		<ion-searchbar
 			(ionFocus)="addFocus()"
@@ -12,9 +12,15 @@
 			debounce=500>
 		</ion-searchbar>
 		<ion-list *ngIf="isItemAvailable">
-			<ion-item *ngFor="let item of result" (click)="addItem(item)">
-				{{item.label}}
+			<ion-item *ngFor="let item of result">
+				<ion-label (click)="addToList(item)">{{item.label}}</ion-label>	
 			</ion-item>
+		</ion-list>
+		<ion-list *ngIf="selectedItems.length>0">
+			<div class="selected-item" *ngFor="let item of selectedItems">
+				{{item.label}}
+				<ion-icon (click)="removeFromList(item)" ios="ios-trash" md="md-trash"></ion-icon>
+			</div>
 		</ion-list>
 	</div>
 </div>

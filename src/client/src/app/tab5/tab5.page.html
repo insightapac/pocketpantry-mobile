@@ -4,25 +4,22 @@
       Profile Settings
     </ion-title>
   </ion-toolbar>
-  <ion-toolbar class="secondary-toolbar ion-text-center" color="dark">
-    What makes you, you?
+  <ion-toolbar>
+    <ng-container *ngIf="isOnline()">
+      <ion-button (click)="logOut()">
+        Log Out
+      </ion-button>
+      <ion-text>The secret message is "You're logged in!"</ion-text>
+    </ng-container>
+    <ng-container *ngIf="!isOnline()">
+      <ion-button (click)="logIn($event)">
+        <ion-icon name="key"></ion-icon>
+      </ion-button>
+      <ion-text>Log In to see the secret message</ion-text>
+    </ng-container>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <app-profile-form></app-profile-form>
-
-    <ion-fab vertical="top" horizontal="center" slot="fixed" *ngIf="isOnline()">
-      <ion-fab-button (click)="logOut()">
-        Log Out
-      </ion-fab-button>
-      The secret message is "You're logged in!"
-    </ion-fab>
-    <ion-fab vertical="top" horizontal="center" slot="fixed" *ngIf="!isOnline()">
-      <ion-fab-button (click)="logIn($event)">
-        <ion-icon name="key"></ion-icon>
-      </ion-fab-button>
-      <p>Log In to see the secret message</p>
-    </ion-fab>
-  </ion-content>
+</ion-content>
