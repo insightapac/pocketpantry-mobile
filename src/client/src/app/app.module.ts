@@ -22,6 +22,7 @@ import { RecipesPageModule } from './recipes/recipes.module';
 import { SelectMenuPageModule } from './select-menu/select-menu.module';
 import { PlanPageModule } from './plan/plan.module';
 import { BrowseMealsModule } from './browse-meals/browse-meals.module';
+import { TabsPage } from './tabs/tabs.page';
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,6 +48,7 @@ import { BrowseMealsModule } from './browse-meals/browse-meals.module';
     MsalService,
     AppCenterAnalytics,
     AppCenterCrashes,
+    TabsPage
   ],
   bootstrap: [AppComponent]
 })
