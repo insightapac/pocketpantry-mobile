@@ -5,11 +5,11 @@
     <div class="recipe-card-controls">
 
       <div class="controls-left">
-        <a href="#" (click)="refreshBtnFunction()" *ngIf="refreshBtnFunction"><ion-icon name="refresh"></ion-icon></a>
-        <a href="#" (click)="addBtnFunction()" *ngIf="addBtnFunction"><ion-icon name="refresh"></ion-icon></a>
+        <button (click)="refreshClicked()" *ngIf="showRefresh"><ion-icon name="refresh"></ion-icon></button>
+        <button (click)="addClicked()" *ngIf="showAdd"><ion-icon name="refresh"></ion-icon></button>
       </div>
       <div class="controls-right">
-        <a href="#" (click)="deleteBtnFunction()" *ngIf="deleteBtnFunction"><ion-icon name="trash"></ion-icon></a>
+        <button (click)="deleteClicked()" *ngIf=showDelete><ion-icon name="trash"></ion-icon></button>
       </div>
       
     </div>

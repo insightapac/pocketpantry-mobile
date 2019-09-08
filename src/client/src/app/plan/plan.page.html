@@ -23,7 +23,11 @@
 
 <ion-content>
   <app-recipe-card 
-    *ngFor="let recipe of recipeCollection;"
+    *ngFor="let recipe of recipeCollection; let i = index"
     [recipe]="recipe"
+    [showRefresh]="true"
+    (onRefresh)="swapCard(i)"
+    [showDelete]="true"
+    (onDelete)="deleteCard(i)"
   ></app-recipe-card>
 </ion-content>

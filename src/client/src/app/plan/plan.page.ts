@@ -36,6 +36,15 @@ export class PlanPage implements OnInit {
     this.recipesClient.getRecipeAll().subscribe(x => this.recipeCollection = this.shuffle(x).slice(0, this.totalMeals));
   }
 
+  public swapCard(index: number) {
+    this.recipesClient.getRecipeAll().subscribe(x => this.recipeCollection.splice(index, 1, this.shuffle(x)[0]));
+  }
+
+  public deleteCard(index: number) {
+    this.recipeCollection.splice(index, 1);
+    this.totalMeals --;
+  }
+
   private shuffle<T>(array: Array<T>): Array<T> {
     let currentIndex = array.length, temporaryValue, randomIndex;
 
