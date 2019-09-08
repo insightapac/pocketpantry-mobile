@@ -13,7 +13,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../select-menu/select-menu.module').then(m => m.SelectMenuPageModule)
+              import('../select-menu/select-menu.module').then(m => m.SelectMenuPageModule),
+          },
+          // {
+          //   path: 'select-menu',
+          //   loadChildren: '../select-menu/select-menu.module#SelectMenuPageModule'
+          // },
+          {
+            path: 'plan',
+            loadChildren: '../plan/plan.module#PlanPageModule'
           }
         ]
       },
@@ -24,7 +32,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
+          },
+          // {
+          //   path: 'add-item',
+          //   loadChildren: './modals/add-item/add-item.module#AddItemPageModule'
+          // }
         ]
       },
       {
@@ -64,7 +76,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab5/tab5.module').then(m => m.Tab5PageModule)
-          }
+          },
+          {
+            path: 'browse',
+            loadChildren: './browse-meals/browse-meals.module#BrowseMealsModule'
+          },
         ]
       },
       {
@@ -85,4 +101,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

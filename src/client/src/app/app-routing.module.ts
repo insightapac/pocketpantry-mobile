@@ -5,13 +5,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  { path: 'add-item', loadChildren: './modals/add-item/add-item.module#AddItemPageModule' },
-  { path: 'recipes/:myid', loadChildren: './recipes/recipes.module#RecipesPageModule' },
-  { path: 'select-menu', loadChildren: './select-menu/select-menu.module#SelectMenuPageModule' },
-  { path: 'plan', loadChildren: './plan/plan.module#PlanPageModule' },
-  { path: 'browse', loadChildren: './browse-meals/browse-meals.module#BrowseMealsModule' },
-
+  }
+  // Add new routes to the tabs.router.module unless the route needs to be outside of the tabs  
 ];
 @NgModule({
   imports: [
