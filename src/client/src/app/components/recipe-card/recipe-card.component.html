@@ -1,19 +1,33 @@
 <ion-card class="recipe-card">
-  <div class="recipe-card-img">
+
+  <div class="recipe-card-top">
     <img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/spaghetti-bolognese_2.jpg" />
+    <div class="recipe-card-controls">
+
+      <div class="controls-left">
+        <a href="#" (click)="refreshBtnFunction()" *ngIf="refreshBtnFunction"><ion-icon name="refresh"></ion-icon></a>
+        <a href="#" (click)="addBtnFunction()" *ngIf="addBtnFunction"><ion-icon name="refresh"></ion-icon></a>
+      </div>
+      <div class="controls-right">
+        <a href="#" (click)="deleteBtnFunction()" *ngIf="deleteBtnFunction"><ion-icon name="trash"></ion-icon></a>
+      </div>
+      
+    </div>
     <div class="recipe-card-meta">
-      <span><ion-icon name="alarm"></ion-icon> 15</span><span>$16</span><span>400 cal</span>
+      <span><ion-icon name="alarm"></ion-icon> {{recipe.time}}</span><span>${{recipe.price}}</span><span>{{recipe.calories}} cal</span>
     </div>
   </div>
+
   <ion-card-header>
-    <ion-card-subtitle>Italian</ion-card-subtitle>
-    <ion-card-title>Bolognese</ion-card-title>
+    <ion-card-subtitle>Servings {{recipe.servings}}</ion-card-subtitle>
+    <ion-card-title>{{recipe.name}}</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    One line description of recipe
+    {{recipe.description}}
     <div class="tag-container">
-        <div class="tag">Easy meals</div><div class="tag">Vegetarian</div><div class="tag">Healthy</div>
+      <div class="tag" *ngFor="let tag of recipe.tags">{{tag}}</div>
     </div>
   </ion-card-content>
+
 </ion-card>

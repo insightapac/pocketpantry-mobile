@@ -12,6 +12,8 @@ import { Camera, PictureSourceType, CameraOptions } from '@ionic-native/camera/n
 import * as Tesseract from "tesseract.js";
 import { AppCenterAnalytics } from '@ionic-native/app-center-analytics/ngx';
 import { AppCenterCrashes } from '@ionic-native/app-center-crashes/ngx';
+
+
 @Component({
   selector: "app-tab1",
   templateUrl: "tab1.page.html",
@@ -22,6 +24,16 @@ export class Tab1Page {
   barcodeScannerOptions: BarcodeScannerOptions;
   selectedImage: string;
   imageText: string;
+
+  public recipe: Recipe = {
+    name: "Spaghetti Bolognese",
+    description: "Short description text about this dish",
+    tags: ["Easy meals", "Vegetarian", "Healthy"],
+    time: 15,
+    calories: 1500,
+    price: 16,
+    servings: 4
+  }
 
   constructor(
     public modalController: ModalController,
