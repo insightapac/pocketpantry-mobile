@@ -24,6 +24,7 @@ export class TypeaheadCollectionComponent implements OnInit, ControlValueAccesso
   @Input() formControlName: string;
   @Input() items = [];
   @Input() result = [];
+  @Input() selectedItems = [];
   @Input() label = '';
 
   constructor(
@@ -103,12 +104,19 @@ export class TypeaheadCollectionComponent implements OnInit, ControlValueAccesso
   }
 
 
-  addToList(id: any): void {
+  addToList(item: any): void {
+    console.log('addToList')
     // TODO
+    this.selectedItems.push(
+      item
+    )
   }
 
-  removeFromList(id: any): void {
-    // TODO
+  removeFromList(removeItem: any): void {
+    console.log('removeFromList')
+    let i = this.selectedItems.findIndex( item => {
+      return item.value === item.value
+    });
   }
 
 }

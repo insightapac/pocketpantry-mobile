@@ -17,11 +17,19 @@
     </app-typeahead-collection>
 
     <app-checkbox-collection 
-    formControlName="foodTypes" 
-    [items]="foodTypesItems"
-    [label]="'Select the food types you prefer'"
-    >
-  </app-checkbox-collection>
+      formControlName="foodTypes" 
+      [items]="foodTypesItems"
+      [label]="'Select the food types you prefer'"
+      >
+    </app-checkbox-collection>
+
+    <app-checkbox-collection 
+      formControlName="foodPreferences" 
+      [items]="foodPreferenceItems"
+      [label]="'Select what best describes your meal choices'"
+      >
+    </app-checkbox-collection>
+  
 
   </form>
 </div>

@@ -13,11 +13,12 @@ export class ProfileFormComponent implements OnInit {
   public groceryItems: Array<any> = [];
   public allergyItems: Array<any> = [];
   public foodTypesItems: Array<any> = [];
-
+  public foodPreferenceItems: Array<any> = [];
   public formGroup: FormGroup;
   public allergyTypes: FormControl;
   public wastedItems: FormControl;
   public foodTypes: FormControl;
+  public foodPreferences: FormControl;
 
   constructor(
     public formBuilder: FormBuilder
@@ -94,6 +95,44 @@ export class ProfileFormComponent implements OnInit {
         label: 'Greek'
       }
     ]
+    this.foodPreferenceItems = [
+      {
+        value: false,
+        label: 'Anything goes'
+      },
+      {
+        value: false,
+        label: 'High fibre'
+      },
+      {
+        value: false,
+        label: 'Low carb'
+      },
+      {
+        value: false,
+        label: 'Vegan'
+      },
+      {
+        value: false,
+        label: 'Vegetarian'
+      },
+      {
+        value: false,
+        label: 'Paleo'
+      },
+      {
+        value: false,
+        label: 'Fish'
+      },
+      {
+        value: false,
+        label: 'Red meat'
+      },
+      {
+        value: false,
+        label: 'White meat'
+      }
+    ]
     this.configForm();
   }
 
@@ -102,10 +141,12 @@ export class ProfileFormComponent implements OnInit {
     this.allergyTypes = new FormControl(false);
     this.wastedItems = new FormControl(false);
     this.foodTypes = new FormControl(false);
+    this.foodPreferences = new FormControl(false);
     this.formGroup = this.formBuilder.group({
       allergyTypes: this.allergyTypes,
       wastedItems: this.wastedItems,
-      foodTypes: this.foodTypes
+      foodTypes: this.foodTypes,
+      foodPreferences: this.foodPreferences
     });
     // TODO - Configure service
   }
